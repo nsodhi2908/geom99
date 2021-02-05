@@ -5,18 +5,22 @@
 	<div class="container"> 
 	<h1>Places I would love to visit in Canada.</h1>
 </div>
+
 <p>There are many reasons why humans have loved to travel over the centuries.<br>
 From discovering new lands to interacting with different peoples and learning about their culture, travel really does broaden the mind.<br>
 <br>
 Gustave Flaubert said, "Travel makes one modest, you see what a tiny place you occupy in the world."<br>
 <br>
 Following markers represent the places I would love to travel to, in Canada. Click on the red marker to know about the places of my interest.</p>
+
     <!--The div element for the map -->
     <div id="map"></div>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5a1FoKmbmQ1djPh6pRx7oiknBf3ACNOE"></script>
+	
 	<footer>
 	  <h2>Created by: Navjot Kaur Sodhi</h2>
 	</footer>
+	
 </body>
 <head>
     <style>
@@ -28,11 +32,12 @@ Following markers represent the places I would love to travel to, in Canada. Cli
             /* The width is the width of the web page */
 			margin-top: 3%;
 			margin-bottom: 2%;
-        }
+}
 		
 		body {
 			background-color: #fff3f4;
-		}
+}
+		
 		.container {
 			background-color: #ffe6e8;
 			width: 530px;
@@ -40,22 +45,24 @@ Following markers represent the places I would love to travel to, in Canada. Cli
 			border: 3px solid pink;
 			font-family: "Garamond", serif;
 }
+
 		footer {
 		  text-align: center;
 		  background-color: #ffe6e8;
 		  margin-top: 20px;
 }
+
 		h2 {
 			color: #656565;
 			font-size: 10px;
 }
+
 		h3 {
 			font-size: 14px;
 			color: #656565;
 			font-family: "Garamond", serif;
 }
-			
-			
+				
 		p {
 			font-family: "Garamond", serif;
 			font-size: 18px;
@@ -64,6 +71,7 @@ Following markers represent the places I would love to travel to, in Canada. Cli
 }
 		
     </style>
+	
     <script>
         var map;
         var InforObj = [];
@@ -71,6 +79,7 @@ Following markers represent the places I would love to travel to, in Canada. Cli
             lat: 54.1304,
             lng: -102.3468
         };
+		
         var markersOnMap = [{
                 placeName: "Banff, Alberta<br><h3>The charming mountain town of Banff, in the stunning Banff National Park, is a must-visit destination for anyone looking to explore the Rocky Mountains and see some of the most beautiful scenery in Canada.</h3>",
                 LatLng: [{
