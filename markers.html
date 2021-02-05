@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<body>
+    
+	<div class="container"> 
+	<h1>Places I would love to visit in Canada.</h1>
+</div>
+<p>There are many reasons why humans have loved to travel over the centuries.<br>
+From discovering new lands to interacting with different peoples and learning about their culture, travel really does broaden the mind.<br>
+<br>
+Gustave Flaubert said, "Travel makes one modest, you see what a tiny place you occupy in the world."<br>
+<br>
+Following markers represent the places I would love to travel to, in Canada. Click on the red marker to know about the places of my interest.</p>
+    <!--The div element for the map -->
+    <div id="map"></div>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5a1FoKmbmQ1djPh6pRx7oiknBf3ACNOE"></script>
+	<footer>
+	  <h2>Created by: Navjot Kaur Sodhi</h2>
+	</footer>
+</body>
+<head>
+    <style>
+        /*  <span class="metadata-marker" style="display: none;" data-region_tag="css"></span>       Set the size of the div element that contains the map */
+        #map {
+            height: 400px;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+			margin-top: 3%;
+			margin-bottom: 2%;
+        }
+		
+		body {
+			background-color: #fff3f4;
+		}
+		.container {
+			background-color: #ffe6e8;
+			width: 530px;
+			height: 60px;
+			border: 3px solid pink;
+			font-family: "Garamond", serif;
+}
+		footer {
+		  text-align: center;
+		  background-color: #ffe6e8;
+		  margin-top: 20px;
+}
+		h2 {
+			color: #656565;
+			font-size: 10px;
+}
+		h3 {
+			font-size: 14px;
+			color: #656565;
+			font-family: "Garamond", serif;
+}
+			
+			
+		p {
+			font-family: "Garamond", serif;
+			font-size: 18px;
+			color: black;
+		
+}
+		
+    </style>
+    <script>
+        var map;
+        var InforObj = [];
+        var centerCords = {
+            lat: 54.1304,
+            lng: -102.3468
+        };
+        var markersOnMap = [{
+                placeName: "Banff, Alberta<br><h3>The charming mountain town of Banff, in the stunning Banff National Park, is a must-visit destination for anyone looking to explore the Rocky Mountains and see some of the most beautiful scenery in Canada.</h3>",
+                LatLng: [{
+                    lat: 51.178,
+                    lng: -115.5708
+                }]
+            },
+            {
+                placeName: "Niagara Falls, Ontario<br><h3>Canada's most famous natural attraction, the majestic Niagara Falls has been drawing sightseers almost since its discovery. The great wall of water pounding over the falls is an amazing sight, and the view and access afforded visitors is astounding.</h3>",
+                LatLng: [{
+                    lat: 43.0896,
+                    lng: -79.0849
+                }]
+            },
+            {
+                placeName: "Vancouver, British Columbia<br><h3>Set on the shores of the Pacific Ocean and backed by snow-capped mountains, this is an active city, where locals enjoy the outdoors year-round.</h3>",
+                LatLng: [{
+                    lat: 49.2827,
+                    lng: -123.1207
+                }]
+            },
+            {
+                placeName: "Whistler, British Columbia<br><h3>Whistler has long been known as a world-class ski destination and was the site of many of the skiing events during the 2010 Winter Olympics hosted by Vancouver. Despite this reputation, Whistler is an equally impressive and popular summer destination, with hiking, biking, golfing, and many other activities on offer.</h3>",
+                LatLng: [{
+                    lat: 50.1169,
+                    lng: -122.9574
+                }]
+            },
+            {
+                placeName: "Montreal, Quebec<br><h3>Montreal is a unique city, with a beautiful old historic district dating back to the 1600s and a modern city center with extensive underground shopping. Old Montreal is the main tourist hub, with cobbled streets and fantastic old buildings.</h3>",
+                LatLng: [{
+                    lat: 45.5017,
+                    lng: -73.5673
+                }]
+            },
+			{
+                placeName: "Quebec City, Quebec<br><h3>Like Montreal, Québec City is loaded with history and located in the French-speaking province of Québec. This is the provincial capital and a city with a history dating back to the early 1600s. The old buildings and curving cobbled streets make this one of Canada's most charming capital cities.</h3>",
+                LatLng: [{
+                    lat: 46.8139,
+                    lng: -71.2080
+                }]
+            },
+			{
+                placeName: "Victoria, British Columbia<br><h3>British Columbia's beautiful capital city has a quaint, small-town atmosphere, perhaps due to its island location. Set at the southern tip of Vancouver Island, the city has a mild year-round climate, with wet mild winters and warm, glorious summers. Views are stunning in every direction.</h3>",
+                LatLng: [{
+                    lat: 48.4284,
+                    lng: -123.3656
+                }]
+            },
+			{
+                placeName: "St. John's, Newfoundland and Labrador<br><h3>In Canada's far eastern province of Newfoundland and Labrador is the historic and friendly city of St. John's. This is the main gateway for air travelers to the island of Newfoundland, but many people come simply to enjoy the city.</h3>",
+                LatLng: [{
+                    lat: 47.5615,
+                    lng: -52.7126
+                }]
+            },
+			{
+                placeName: "Ottawa, Capital of Canada<br><h3>As Canada's capital, Ottawa is home to some outstanding national museums and historic sites, as well as Parliament Hill, and it enjoys a beautiful setting along the Rideau Canal. It is also a small city, making it easy to navigate and fun to explore.</h3>",
+                LatLng: [{
+                    lat: 45.4215,
+                    lng: -75.6972
+                }]
+            },
+			{
+                placeName: "Whitehorse, Yukon<br><h3>A visit to Whitehorse offers a chance to see life in Canada's far north. This is the capital of the Yukon and also a gateway to areas farther north, including Alaska and the beautiful Nahanni National Park. If you are lucky, the night sky will come to life with a display of northern lights.</h3>",
+                LatLng: [{
+                    lat: 60.7212,
+                    lng: -135.0568
+                }]
+            },
+			{
+                placeName: "Charlottetown and Prince Edward Island<br><h3>If you are going to visit Charlottetown, you might as well take the time to explore the whole province of Prince Edward Island. PEI is a summertime playground, with beautiful beaches and interesting historic sites, including the fictional home of Anne of Green Gables in PEI National Park.</h3>",
+                LatLng: [{
+                    lat: 46.2382,
+                    lng: -63.1311
+                }]
+            },
+			{
+                placeName: "Tofino, British Columbia<br><h3>The unofficial surfing capital of Canada, the small town of Tofino on Vancouver Island is one of the most unique places to visit in Canada and draws a mixed crowd of visitors. People come here to surf, hike in the old growth forests, and enjoy the beaches in Pacific Rim National Park; see wildlife; kayak; storm watch in November.</h3>",
+                LatLng: [{
+                    lat: 49.1530,
+                    lng: -125.9066
+                }]
+            },
+			{
+                placeName: "Kelowna, British Columbia<br><h3>Picturesquely set on the shore of Lake Okanagan and surrounded by rolling mountains, Kelowna draws tourists during the summer months, when it's possible to hike, golf, or enjoy the lake.</h3>",
+                LatLng: [{
+                    lat: 49.880,
+                    lng: -119.4960
+                }]
+            },
+			{
+                placeName: "Revelstoke, British Columbia<br><h3>Revelstoke is one of the best places to visit in Canada for adventure. Although it's a favorite destination among Albertans and British Columbians, it is still undiscovered on an international scale, making it a good place to escape the crowds associated with sightseeing destinations like Banff and Lake Louise.</h3>",
+                LatLng: [{
+                    lat: 50.9981,
+                    lng: -118.1957
+                }]
+            },
+			{
+                placeName: "Winnipeg, Manitoba<br><h3>This thriving city in the prairies of Central Canada may not be the first image that jumps to mind when thinking about the best places to visit in Canada, but if you are traveling in summer, Winnipeg is worth a stop. Surrounded by fields, many of which glow yellow in summer with canola or sunflowers, and set along the Red and Assiniboine Rivers, the city is surprisingly scenic.</h3>",
+                LatLng: [{
+                    lat: 49.8951,
+                    lng: -97.1384
+                }]
+            },
+			{
+                placeName: "The Blue Mountains, Ontario<br><h3>The Blue Mountains has a host of recreational activities for all the seasons. Most notably is the winter skiing, snowboarding, snowshoeing and cross-country skiing.</h3>",
+                LatLng: [{
+                    lat: 44.5405,
+                    lng: -80.4081
+                }]
+            }
+			
+        ];
+
+        window.onload = function () {
+            initMap();
+        };
+
+        function addMarkerInfo() {
+            for (var i = 0; i < markersOnMap.length; i++) {
+                var contentString = markersOnMap[i].placeName;
+					
+
+                const marker = new google.maps.Marker({
+                    position: markersOnMap[i].LatLng[0],
+                    map: map
+                });
+
+                const infowindow = new google.maps.InfoWindow({
+                    content: contentString,
+                 });
+				
+				
+
+                marker.addListener('click', function () {
+                    closeOtherInfo();
+                    infowindow.open(marker.get('map'), marker);
+                    InforObj[0] = infowindow;
+                });
+                // marker.addListener('mouseover', function () {
+                //     closeOtherInfo();
+                //     infowindow.open(marker.get('map'), marker);
+                //     InforObj[0] = infowindow;
+                // });
+                // marker.addListener('mouseout', function () {
+                //     closeOtherInfo();
+                //     infowindow.close();
+                //     InforObj[0] = infowindow;
+                // });
+            }
+        }
+
+        function closeOtherInfo() {
+            if (InforObj.length > 0) {
+                /* detach the info-window from the marker ... undocumented in the API docs */
+                InforObj[0].set("marker", null);
+                /* and close it */
+                InforObj[0].close();
+                /* blank the array */
+                InforObj.length = 0;
+            }
+        }
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: centerCords
+            });
+            addMarkerInfo();
+        }
+    </script>
+</head>
+
+</html>
