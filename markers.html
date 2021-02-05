@@ -220,16 +220,16 @@ Following markers represent the places I would love to travel to, in Canada. Poi
                     infowindow.open(marker.get('map'), marker);
                     InforObj[0] = infowindow;
                 });
-                // marker.addListener('mouseover', function () {
-                //     closeOtherInfo();
-                //     infowindow.open(marker.get('map'), marker);
-                //     InforObj[0] = infowindow;
-                // });
-                // marker.addListener('mouseout', function () {
-                //     closeOtherInfo();
-                //     infowindow.close();
-                //     InforObj[0] = infowindow;
-                // });
+                 marker.addListener('mouseover', function () {
+                     closeOtherInfo();
+                     infowindow.open(marker.get('map'), marker);
+                     InforObj[0] = infowindow;
+                });
+                 marker.addListener('mouseout', function () {
+                    closeOtherInfo();
+                    infowindow.close();
+                     InforObj[0] = infowindow;
+                });
             }
         }
 
